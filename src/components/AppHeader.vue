@@ -3,7 +3,7 @@
     <div class="container">
       <div class="header__content">
         <AppMenu :links="links" />
-        <SearchItem @updateSearch="(q) => $emit('updateSearch', q)" />
+        <SearchItem @updateSearch="handleSearch" />
       </div>
     </div>
     <hr class="header__line" />
@@ -11,11 +11,13 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import AppMenu from './AppMenu.vue';
 import SearchItem from './SearchItem.vue';
 import links from '../data/links';
 
-export default {
+export default defineComponent({
+  name: 'AppHeader',
   components: {
     AppMenu,
     SearchItem,
@@ -25,7 +27,12 @@ export default {
       links,
     };
   },
-};
+  methods: {
+    handleSearch(search: string) {
+      this.$emit('updateSearch', search);
+    },
+  },
+});
 </script>
 
 <style lang="sass" scoped>

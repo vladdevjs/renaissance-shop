@@ -1,9 +1,8 @@
-// webpack.config.js
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
-  entry: './src/main.js',  // или './src/main.ts' для TypeScript
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -32,9 +31,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new VueLoaderPlugin(),
-  ],
+  plugins: [new VueLoaderPlugin()],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

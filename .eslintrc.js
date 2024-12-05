@@ -16,5 +16,6 @@ module.exports = {
     'function-paren-newline': ['error', 'consistent'],
     'max-len': 'off',
     'function-paren-newline': 'off',
+    'linebreak-style': 'off',
   },
 };
